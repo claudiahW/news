@@ -9,10 +9,11 @@ def index():
     '''
     #getting latest news
     latest_news =get_news('latest')
+    upcoming_news = get_news('upcoming')
     print(latest_news)
 
     title = 'Home - Welcome to The best news site Online'
-    return render_template('index.html', title = title , latest =latest_news)
+    return render_template('index.html', title = title , latest =latest_news ,upcoming = upcoming_news)
 
 @app.route('/news/<news_id>')
 def news(news_id):
