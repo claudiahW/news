@@ -11,6 +11,12 @@
         {% endif %}
     </head>
     <body>
-
-    </body>
+        <!-- latest news section -->
+        <h3> Latest News</h3>
+         <ul>
+            {% for latest_news in latest %}
+                <li>{{ latest_news.title}}</li>
+            {% endfor %}
+        </ul>
+ </body>
 </html>
