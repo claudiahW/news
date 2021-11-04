@@ -1,29 +1,21 @@
-<!-- <h1> Hello World </h1> -->
-<!-- <h1> {{ message }} </h1> -->
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best News viewing website </title>
-        {% endif %}
-    </head>
-    <body>
-        <!-- latest news section -->
-        <h3> Latest News</h3>
+{% extends 'base.html'%}
+{% block content %}
+<h1 class="text-center">1159 NEWS</h1>
          <ul>
-            {% for latest_news in latest %}
-                <li>{{ latest_news.title}}</li>
+            {% for article in articles %}
+            <div class="row row-cols-1 row-cols-md-1 g-1 d-flex ">
+                <div class="col p-3 border border-warning rounded">
+                  <div class="card p-3">
+                    <img src="{{ article.urlToImage }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h3 class="card-title text-success">{{ article.title}}</h3>
+                      <p class="card-text text-bold text-dark fs-3 "><strong>{{article.description}}</strong></p>
+                      <p class="card-text fs-4">{{article.content}}</p>
+                      <p class="card-text text-center text-danger display-5 ">{{article.publishedAt}}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>  
             {% endfor %}
-        </ul>
-        <!-- Upcoming news section -->
-        <h3> Upcoming News </h3>
-         <ul>
-            {% for upcoming_news in upcoming %}
-                <li>{{ upcoming_news.title}}</li>
-            {% endfor %}
-        </ul>
- </body>
-</html>
+        </ul>  
+{% endblock%}
